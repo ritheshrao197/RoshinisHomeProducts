@@ -50,15 +50,20 @@ export default function ProductsPage() {
 
     const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (editingProduct) {
-            const { error } = await supabase.from('products').update(formData).eq('id', editingProduct.id);
-            if (error) alert(error.message);
-        } else {
-            const { error } = await supabase.from('products').insert([formData]);
-            if (error) alert(error.message);
+        try {
+            if (editingProduct) {
+                const { error, data } = await supabase.from('products').update(formData).eq('id', editingProduct.id).select();
+                if (error) throw error;
+            } else {
+                const { error, data } = await supabase.from('products').insert([formData]).select();
+                if (error) throw error;
+            }
+            setIsModalOpen(false);
+            fetchProducts();
+        } catch (err: any) {
+            console.error('Save error:', err);
+            alert(`Failed to save: ${err.message}`);
         }
-        setIsModalOpen(false);
-        fetchProducts();
     };
 
     const filteredProducts = products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
