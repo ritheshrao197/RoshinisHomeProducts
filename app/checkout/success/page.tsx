@@ -3,6 +3,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SuccessContent from '@/components/checkout/SuccessContent';
 
+export const dynamic = 'force-dynamic';
+
 export default function OrderSuccessPage() {
     return (
         <div className="flex min-h-screen flex-col bg-earth-50">
