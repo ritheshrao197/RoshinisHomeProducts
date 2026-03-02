@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
@@ -7,7 +8,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
 import { CheckCircle2, Package, Mail } from 'lucide-react';
 
-export default function OrderSuccessPage() {
+function OrderSuccessContent() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get('orderId') || 'ORD-' + Math.floor(Math.random() * 1000000);
     const method = searchParams.get('method') || 'prepaid';
@@ -70,5 +71,13 @@ export default function OrderSuccessPage() {
             </main>
             <Footer />
         </div>
+    );
+}
+
+export default function OrderSuccessPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-earth-50 text-earth-600">Loading your order details...</div>}>
+            <OrderSuccessContent />
+        </Suspense>
     );
 }
