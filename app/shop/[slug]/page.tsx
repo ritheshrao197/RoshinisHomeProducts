@@ -1,67 +1,25 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/Button';
-import { useCartStore } from '@/hooks/useCartStore';
 import { supabase } from '@/lib/supabase';
 import { Check, Info, Shield, MessageCircle } from 'lucide-react';
+import { AddToCartClient } from '@/components/ui/AddToCartClient';
+import { notFound } from 'next/navigation';
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-    const [product, setProduct] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
-    const [quantity, setQuantity] = useState(1);
-    const addItem = useCartStore(state => state.addItem);
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+    // Fetch product eagerly on the server
+    const { data: product, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('slug', params.slug)
+        .single();
 
-    useEffect(() => {
-        async function fetchProduct() {
-            const { data, error } = await supabase
-                .from('products')
-                .select('*')
-                .eq('slug', params.slug)
-                .single();
+    if (error || !product) {
+        // Fallback or 404
+        notFound();
+    }
 
-            if (data && !error) {
-                setProduct(data);
-            } else {
-                // Fallback for demo without DB connection
-                setProduct({
-                    id: '1',
-                    name: 'Nutrimix (Siri Dhanyada Siri)',
-                    slug: 'nutrimix',
-                    price: 250,
-                    compare_price: 300,
-                    images: ['https://via.placeholder.com/600x600?text=Nutrimix'],
-                    short_desc: 'A healthy mix of millets and nuts for a nutritious start to your day.',
-                    description: 'Nutrimix is a carefully crafted blend of traditional millets, nuts, and natural ingredients. It provides essential nutrients, fiber, and protein. Perfect for growing children and adults seeking a healthy lifestyle.',
-                    ingredients: ['Ragi', 'Almonds', 'Cashews', 'Cardamom', 'Jaggery'],
-                    benefits: ['Boosts immunity', 'High in fiber', 'Rich in natural protein'],
-                    stock: 100,
-                    category: 'Health Mix'
-                });
-            }
-            setLoading(false);
-        }
-        fetchProduct();
-    }, [params.slug]);
-
-    if (loading) return <div className="min-h-screen flex items-center justify-center bg-earth-50">Loading...</div>;
-    if (!product) return <div className="min-h-screen flex items-center justify-center bg-earth-50">Product not found.</div>;
-
-    const handleAddToCart = () => {
-        addItem({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            quantity,
-            image: product.images[0] || 'https://via.placeholder.com/300'
-        });
-        alert('Added to cart!');
-    };
-
-    const activeImage = product.images[0] || 'https://via.placeholder.com/600';
+    const activeImage = product.images?.[0] || 'https://via.placeholder.com/600';
 
     return (
         <div className="flex min-h-screen flex-col bg-white">
@@ -73,10 +31,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                         <div className="relative aspect-square rounded-2xl overflow-hidden bg-earth-50 border border-earth-100">
                             <Image src={activeImage} alt={product.name} fill className="object-cover" />
                         </div>
-                        {product.images.length > 1 && (
+                        {product.images && product.images.length > 1 && (
                             <div className="flex gap-4">
                                 {product.images.map((img: string, idx: number) => (
-                                    <button key={idx} className="relative w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-earth-300">
+                                    <button key={idx} className="relative w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-earth-300 transition-colors">
                                         <Image src={img} alt={`${product.name} ${idx}`} fill className="object-cover" />
                                     </button>
                                 ))}
@@ -96,17 +54,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                             )}
                         </div>
 
-                        <p className="text-earth-500 mb-8 leading-relaxed text-lg">{product.description}</p>
+                        <p className="text-earth-500 mb-8 leading-relaxed text-lg">{product.description || product.short_desc}</p>
 
-                        {/* Add to Cart Actions */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                            <div className="flex items-center border border-earth-300 rounded-md bg-white">
-                                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-4 py-2 text-earth-500 hover:text-earth-600 focus:outline-none">-</button>
-                                <span className="w-12 text-center font-medium text-earth-600">{quantity}</span>
-                                <button onClick={() => setQuantity(quantity + 1)} className="px-4 py-2 text-earth-500 hover:text-earth-600 focus:outline-none">+</button>
-                            </div>
-                            <Button size="lg" className="flex-grow text-lg" onClick={handleAddToCart}>Add to Cart</Button>
-                        </div>
+                        {/* Add to Cart Actions (Client Component) */}
+                        <AddToCartClient
+                            product={{
+                                id: product.id,
+                                name: product.name,
+                                price: product.price,
+                                image: activeImage
+                            }}
+                        />
 
                         <div className="mb-8">
                             <a
