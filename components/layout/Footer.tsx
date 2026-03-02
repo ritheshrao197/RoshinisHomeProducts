@@ -36,6 +36,7 @@ export default function Footer() {
                             type="email"
                             placeholder="Enter your email"
                             className="px-3 py-2 bg-earth-500 text-white rounded-l-md focus:outline-none focus:ring-1 focus:ring-earth-300 w-full"
+                            suppressHydrationWarning
                         />
                         <button type="submit" className="bg-earth-300 hover:bg-earth-200 text-earth-600 px-4 py-2 rounded-r-md font-medium transition-colors">
                             Subscribe
