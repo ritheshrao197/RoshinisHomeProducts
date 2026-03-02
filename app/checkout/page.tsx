@@ -105,12 +105,12 @@ export default function CheckoutPage() {
         <div className="flex min-h-screen flex-col bg-earth-50">
             <Navbar />
             <main className="flex-grow container mx-auto px-4 py-12">
-                <h1 className="text-3xl font-bold text-earth-600 mb-8">Checkout</h1>
+                <h1 className="text-3xl font-bold text-earth-600 mb-8">Secure Checkout</h1>
 
                 <div className="flex flex-col lg:flex-row gap-8">
                     <div className="flex-grow space-y-6">
                         <form id="checkout-form" onSubmit={handleSubmit} className="bg-white p-6 rounded-lg border border-earth-200">
-                            <h2 className="text-xl font-bold text-earth-600 mb-6 pb-2 border-b border-earth-100">Shipping Details</h2>
+                            <h2 className="text-xl font-bold text-earth-600 mb-6 pb-2 border-b border-earth-100">Delivery Details</h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                 <div>
@@ -160,7 +160,10 @@ export default function CheckoutPage() {
                         </form>
 
                         <div className="bg-white p-6 rounded-lg border border-earth-200">
-                            <h2 className="text-xl font-bold text-earth-600 mb-6 pb-2 border-b border-earth-100">Payment Method</h2>
+                            <div className="mb-6 pb-2 border-b border-earth-100">
+                                <h2 className="text-xl font-bold text-earth-600">Payment Method</h2>
+                                <p className="text-earth-500 text-sm mt-1">Choose from UPI, Card, Net Banking, or Cash on Delivery.</p>
+                            </div>
 
                             <div className="space-y-4">
                                 <label className={`block p-4 border rounded-lg cursor-pointer transition-colors ${paymentMethod === 'phonepe' ? 'border-earth-600 bg-earth-50' : 'border-earth-200 hover:border-earth-300'}`}>

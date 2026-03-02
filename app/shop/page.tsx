@@ -59,9 +59,10 @@ export default async function ShopPage({
                                     <h3 className="font-semibold text-earth-500 mb-2">Category</h3>
                                     <ul className="space-y-2 text-sm text-earth-600">
                                         <li><a href="/shop" className={`hover:text-earth-400 ${!category ? 'font-bold' : ''}`}>All Products</a></li>
-                                        <li><a href="/shop?category=Health Mix" className={`hover:text-earth-400 ${category === 'Health Mix' ? 'font-bold' : ''}`}>Health Mixes</a></li>
-                                        <li><a href="/shop?category=Snacks" className={`hover:text-earth-400 ${category === 'Snacks' ? 'font-bold' : ''}`}>Snacks</a></li>
-                                        <li><a href="/shop?category=Wellness" className={`hover:text-earth-400 ${category === 'Wellness' ? 'font-bold' : ''}`}>Wellness</a></li>
+                                        <li><a href="/shop?category=Health Mixes" className={`hover:text-earth-400 ${category === 'Health Mixes' ? 'font-bold' : ''}`}>Health Mixes</a></li>
+                                        <li><a href="/shop?category=Seeds" className={`hover:text-earth-400 ${category === 'Seeds' ? 'font-bold' : ''}`}>Seeds</a></li>
+                                        <li><a href="/shop?category=Herbal" className={`hover:text-earth-400 ${category === 'Herbal' ? 'font-bold' : ''}`}>Herbal</a></li>
+                                        <li><a href="/shop?category=Skincare" className={`hover:text-earth-400 ${category === 'Skincare' ? 'font-bold' : ''}`}>Skincare</a></li>
                                     </ul>
                                 </div>
                                 <div>
@@ -79,8 +80,11 @@ export default async function ShopPage({
                     {/* Product Grid */}
                     <div className="flex-grow">
                         <div className="flex justify-between items-center mb-6">
-                            <h1 className="text-3xl font-bold text-earth-600">Shop All Products</h1>
-                            <span className="text-earth-500 text-sm">{products.length} Products</span>
+                            <div>
+                                <h1 className="text-3xl font-bold text-earth-600">Shop All Products</h1>
+                                <p className="text-earth-500 mt-2">Explore our range of natural health mixes, seeds, herbal blends, and skincare products. Carefully made without preservatives or added sugar.</p>
+                            </div>
+                            <span className="text-earth-500 text-sm hidden sm:block whitespace-nowrap ml-4">{products.length} Products</span>
                         </div>
                         {products.length === 0 ? (
                             <div className="bg-white p-12 text-center rounded-lg border border-earth-200">

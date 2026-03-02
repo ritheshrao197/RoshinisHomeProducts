@@ -132,7 +132,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                             </div>
                         </div>
 
-                        {/* Ingredients & Benefits */}
                         <div className="space-y-6">
                             {product.ingredients && product.ingredients.length > 0 && (
                                 <div>
@@ -146,12 +145,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                                             </span>
                                         ))}
                                     </div>
+                                    <p className="text-sm text-earth-400 mt-2 italic">Full ingredient transparency on every pack.</p>
                                 </div>
                             )}
 
                             {product.benefits && product.benefits.length > 0 && (
                                 <div>
-                                    <h3 className="text-lg font-bold text-earth-600 mb-3 block">Key Benefits</h3>
+                                    <h3 className="text-lg font-bold text-earth-600 mb-3 block">Why You'll Love It</h3>
                                     <ul className="space-y-2">
                                         {product.benefits.map((ben: string, i: number) => (
                                             <li key={i} className="flex items-start gap-2 text-earth-500">
@@ -162,6 +162,25 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                                     </ul>
                                 </div>
                             )}
+
+                            {/* Storage & FAQ */}
+                            <div className="mt-8 pt-8 border-t border-earth-100">
+                                <h3 className="text-lg font-bold text-earth-600 mb-2">Storage Instructions</h3>
+                                <p className="text-earth-500 mb-6">Store in a cool, dry place. Keep airtight after opening.</p>
+
+                                <h3 className="text-lg font-bold text-earth-600 mb-4">FAQs</h3>
+                                <div className="space-y-4">
+                                    <div>
+                                        <h4 className="font-semibold text-earth-600">Is it suitable for diabetics?</h4>
+                                        <p className="text-earth-500 text-sm mt-1">It contains no added sugar, but we recommend consulting your doctor for personalized advice.</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-earth-600">Is it safe for kids?</h4>
+                                        <p className="text-earth-500 text-sm mt-1">Yes. Suitable for children above 1 year.</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>

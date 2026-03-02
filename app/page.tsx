@@ -51,16 +51,16 @@ export default function Home() {
                     <div className="container px-4 md:px-6 mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
                         <div className="md:w-1/2 flex flex-col justify-center space-y-6">
                             <span className="inline-block px-3 py-1 bg-earth-200 text-earth-600 rounded-full text-sm font-medium w-fit mb-2">Authentic Karnataka Heritage</span>
-                            <h1 className="text-4xl md:text-6xl font-bold text-earth-600 tracking-tight">Pure, Natural<br />& Rooted in Tradition</h1>
+                            <h1 className="text-4xl md:text-6xl font-bold text-earth-600 tracking-tight">Pure Ingredients.<br />Honest Nutrition.<br />No Added Sugar.</h1>
                             <p className="max-w-[600px] text-lg text-earth-500 leading-relaxed text-center md:text-left">
-                                Nourish your family with our handcrafted blend of millets, natural snacks, and traditional health mixes made exactly like grandmother used to.
+                                Small-batch health mixes, seeds, and traditional wellness products made with care for modern families.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 pt-4 justify-center md:justify-start">
                                 <Link href="/shop">
                                     <Button size="lg" className="w-full sm:w-auto">Shop Now</Button>
                                 </Link>
                                 <Link href="/about">
-                                    <Button variant="outline" size="lg" className="w-full sm:w-auto">Our Story</Button>
+                                    <Button variant="outline" size="lg" className="w-full sm:w-auto">Explore Ingredients</Button>
                                 </Link>
                             </div>
                         </div>
@@ -89,10 +89,10 @@ export default function Home() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {[
-                                { icon: Leaf, title: "100% Natural", desc: "No artificial colors, preservatives, or refined sugars." },
-                                { icon: ShieldCheck, title: "Premium Quality", desc: "Sourced locally from trusted farmers in Karnataka." },
-                                { icon: Package, title: "Freshly Made", desc: "Crafted in small batches to preserve freshness and nutrition." },
-                                { icon: HeartHandshake, title: "Traditional Recipes", desc: "Ancestral wisdom packed into modern, convenient forms." }
+                                { icon: Leaf, title: "No Added Sugar", desc: "We don't hide sweetness behind fancy labels. What you see is what you get." },
+                                { icon: ShieldCheck, title: "No Preservatives", desc: "No artificial stabilizers, colors, or chemical additives." },
+                                { icon: Package, title: "Small Batch Made", desc: "Prepared in limited quantities to maintain freshness and quality." },
+                                { icon: HeartHandshake, title: "Traditional Recipes", desc: "Rooted in time-tested Indian nutrition practices." }
                             ].map((feature, i) => (
                                 <div key={i} className="flex flex-col items-center text-center p-6 rounded-xl bg-earth-50 border border-earth-100 transition-all hover:-translate-y-1 hover:shadow-lg">
                                     <div className="h-14 w-14 rounded-full bg-earth-200 flex items-center justify-center text-earth-600 mb-4">
@@ -111,7 +111,8 @@ export default function Home() {
                     <div className="container px-4 md:px-6 mx-auto">
                         <div className="flex justify-between items-end mb-10">
                             <div>
-                                <h2 className="text-3xl font-bold text-earth-600 tracking-tight">Bestsellers</h2>
+                                <h2 className="text-3xl font-bold text-earth-600 tracking-tight">Our Bestselling Products</h2>
+                                <p className="text-earth-500 mt-2">Trusted by families across Karnataka for everyday nutrition.</p>
                                 <div className="h-1 w-20 bg-earth-300 mt-4 rounded-full"></div>
                             </div>
                             <Link href="/shop" className="text-earth-600 font-medium hover:text-earth-400 group flex items-center gap-1 hidden sm:flex">
@@ -145,9 +146,12 @@ export default function Home() {
                             />
                         </div>
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">Nothing to Hide.<br />Everything to Nourish.</h2>
-                            <p className="text-earth-100 text-lg mb-8 leading-relaxed">
-                                We believe you deserve to know exactly what goes into your family's bodies. From our ragi sourced directly from Mandya farmers to pure jaggery entirely devoid of chemicals—every ingredient in Roshini's Home Products serves a nutritional purpose.
+                            <h2 className="text-3xl font-bold mb-6">We Believe in Full Transparency</h2>
+                            <p className="text-earth-100 text-lg mb-4 leading-relaxed">
+                                We proudly list every ingredient we use. From millets and lentils to seeds and dry fruits, each component is carefully selected for nutrition and balance.
+                            </p>
+                            <p className="text-earth-200 text-lg font-medium mb-8">
+                                No hidden blends. No artificial fillers.
                             </p>
                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                 {[
@@ -172,22 +176,17 @@ export default function Home() {
                 {/* Testimonials */}
                 <section className="py-20 bg-white">
                     <div className="container px-4 md:px-6 mx-auto text-center">
-                        <h2 className="text-3xl font-bold text-earth-600 tracking-tight mb-2">Loved by Families</h2>
-                        <p className="text-earth-500 mb-12 max-w-2xl mx-auto">Don't just take our word for it. Here is what our community of health-conscious mothers and customers say.</p>
+                        <h2 className="text-3xl font-bold text-earth-600 tracking-tight mb-12">What Families Are Saying</h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {[
-                                { name: "Sushma R.", role: "Mother of two", text: "The Ragi Chocobite is a lifesaver! My kids think they are getting chocolate every evening, and I have peace of mind knowing it's just pure ragi and jaggery." },
-                                { name: "Praveen K.", role: "Fitness Enthusiast", text: "Nutrimix has completely replaced my expensive whey protein shakes. It keeps me full, digests well, and feels grounding. Highly recommend!" },
-                                { name: "Ananya S.", role: "Working Professional", text: "The Kashaya powder is exactly how my grandmother used to make it in Udupi. A warm cup before bed instantly cures a sore throat." }
+                                { text: "Our mornings start with Nutrimix. It keeps us full and energetic." },
+                                { text: "The taste is natural and not overly sweet like packaged products." },
+                                { text: "Finally a health mix I can trust for my kids." }
                             ].map((testimonial, i) => (
                                 <div key={i} className="bg-earth-50 p-8 rounded-2xl relative">
                                     <div className="text-4xl text-earth-300 absolute top-4 left-4 opacity-50">"</div>
                                     <p className="text-earth-600 italic mb-6 relative z-10 leading-relaxed">"{testimonial.text}"</p>
-                                    <div>
-                                        <h4 className="font-bold text-earth-600">{testimonial.name}</h4>
-                                        <p className="text-sm text-earth-400">{testimonial.role}</p>
-                                    </div>
                                 </div>
                             ))}
                         </div>

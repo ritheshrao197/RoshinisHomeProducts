@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabase';
-import { Package, TrendingUp, ShoppingBag, AlertCircle } from 'lucide-react';
+import { Package, TrendingUp, ShoppingBag, ShoppingCart, AlertCircle } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,7 +76,7 @@ export default async function DashboardPage() {
                         <a href="/orders" className="text-sm font-medium text-earth-500 hover:text-earth-600">View All</a>
                     </div>
                     <div className="overflow-x-auto w-full">
-                        <table className="w-full text-left w-full max-w-full">
+                        <table className="w-full text-left">
                             <thead className="bg-earth-50 text-earth-500 text-sm">
                                 <tr>
                                     <th className="px-6 py-4 font-medium">Order ID</th>
@@ -94,8 +94,8 @@ export default async function DashboardPage() {
                                         <td className="px-6 py-4 font-medium">₹{order.amount}</td>
                                         <td className="px-6 py-4">
                                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${order.status === 'Completed' ? 'bg-green-100 text-green-800' :
-                                                    order.status === 'Processing' ? 'bg-blue-100 text-blue-800' :
-                                                        'bg-yellow-100 text-yellow-800'
+                                                order.status === 'Processing' ? 'bg-blue-100 text-blue-800' :
+                                                    'bg-yellow-100 text-yellow-800'
                                                 }`}>
                                                 {order.status}
                                             </span>

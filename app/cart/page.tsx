@@ -17,7 +17,7 @@ export default function CartPage() {
 
     const subtotal = getCartTotal();
     const gst = getGstAmount();
-    const isFreeShipping = subtotal >= 500;
+    const isFreeShipping = subtotal >= 999;
     const shipping = isFreeShipping ? 0 : 50;
 
     const handleApplyCoupon = () => {
@@ -49,7 +49,7 @@ export default function CartPage() {
 
                 {items.length === 0 ? (
                     <div className="bg-white p-12 text-center rounded-lg border border-earth-200">
-                        <h2 className="text-xl font-medium text-earth-500 mb-6">Your cart is currently empty.</h2>
+                        <h2 className="text-xl font-medium text-earth-500 mb-6">Your cart is currently empty. Start shopping for clean nutrition today.</h2>
                         <Link href="/shop">
                             <Button size="lg">Continue Shopping</Button>
                         </Link>
@@ -117,7 +117,7 @@ export default function CartPage() {
                                         )}
                                     </div>
                                     {!isFreeShipping && (
-                                        <p className="text-xs text-earth-400 text-right">Add ₹{500 - subtotal} more for Free Shipping</p>
+                                        <p className="text-xs text-earth-400 text-right">Add ₹{999 - subtotal} more for Free Shipping</p>
                                     )}
 
                                     {/* Coupon section */}

@@ -21,9 +21,9 @@ export default function OrderSuccessPage() {
                         <CheckCircle2 className="h-10 w-10 text-green-600" />
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl font-bold text-earth-600 mb-4">Order Confirmed!</h1>
+                    <h1 className="text-3xl md:text-4xl font-bold text-earth-600 mb-4">Thank You for Your Order</h1>
                     <p className="text-lg text-earth-500 mb-8">
-                        Thank you for your purchase. Your order has been received and is being processed.
+                        Your order has been successfully placed. You will receive a confirmation email shortly. For any queries, contact us on WhatsApp.
                     </p>
 
                     <div className="bg-earth-50 p-6 rounded-xl border border-earth-100 text-left mb-8 flex flex-col md:flex-row gap-6 md:gap-12 justify-center">

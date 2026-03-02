@@ -22,14 +22,15 @@ export default function Footer() {
                     <h4 className="font-semibold mb-4 text-white">Customer Service</h4>
                     <ul className="space-y-2 text-sm">
                         <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-                        <li><Link href="/shipping" className="hover:text-white transition-colors">Shipping & Returns</Link></li>
+                        <li><Link href="/shipping" className="hover:text-white transition-colors">Shipping Policy</Link></li>
+                        <li><Link href="/refunds" className="hover:text-white transition-colors">Refund Policy</Link></li>
                         <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
                         <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 className="font-semibold mb-4 text-white">Newsletter</h4>
-                    <p className="text-sm text-earth-200 mb-4">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <h4 className="font-semibold mb-4 text-white">Join Our Wellness Community</h4>
+                    <p className="text-sm text-earth-200 mb-4">Get health tips, product updates, and exclusive offers.</p>
                     <form className="flex">
                         <input
                             type="email"

@@ -11,7 +11,8 @@ export default function Navbar() {
                 <nav className="hidden md:flex gap-6 text-sm font-medium text-earth-500">
                     <Link href="/" className="hover:text-earth-600">Home</Link>
                     <Link href="/shop" className="hover:text-earth-600">Shop</Link>
-                    <Link href="/about" className="hover:text-earth-600">About Us</Link>
+                    <Link href="/about" className="hover:text-earth-600">Our Story</Link>
+                    <Link href="/blog" className="hover:text-earth-600">Blog</Link>
                     <Link href="/contact" className="hover:text-earth-600">Contact</Link>
                 </nav>
                 <div className="flex items-center gap-4">
